@@ -16,6 +16,7 @@ class nsca::nsca_tests {
                    'info_homespace.sh',
                    'fake_killprocess.sh']
 
+    # Iterate over a list of files and get each of them
     $tests_list.each |String $test_file| {
 
         file { "/root/nsca/${test_file}":
@@ -28,6 +29,7 @@ class nsca::nsca_tests {
 
     }
 
+    #This files are not scripts, so the have different permissions
     file { "/root/nsca/send_nsca.cfg":
         ensure => present,
         mode => '0600',

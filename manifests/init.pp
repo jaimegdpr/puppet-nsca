@@ -1,4 +1,18 @@
+#class {'nsca':
+#    stage => last,
+#}
+
+
 class nsca {
-    include nsca::nsca_tests
-    include nsca::cron_config
+
+    class {'nsca::nsca_tests':
+#        stage => last,
+    }
+    class {'nsca::cron_config':
+        stage => last,
+    }
+#
+#    include nsca::nsca_tests
+#    include nsca::cron_config
+
 }
